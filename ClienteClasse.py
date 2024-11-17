@@ -16,14 +16,14 @@ class Cliente():
     
     def setIdade(self):
         if self.__idade== 0:
-            self.__endereco = input(f'{self.nome}, ponha sua idade: ')
+            self.__idade = input(f'{self.nome}, ponha sua idade: ')
             print('Idade registrada.')
         else:
             print('Já há uma idade registrada...')
         
     def setCPF(self):
         if self.__cpf == '' or self.validarCPF() == False:
-            self.__endereco = input(f'{self.nome}, ponha seu CPF: ')
+            self.__cpf = input(f'{self.nome}, ponha seu CPF: ')
             print('CPF registrado.')           
         else:
             print('Já há um CPF válido registrado...')
@@ -41,18 +41,12 @@ class Cliente():
             d8 = int(cpf[9])
             d9 = int(cpf[10])
             soma9digitos = d1*1 + d2*2 + d3*3 + d4*4 + d5*5 + d6*6 + d7*7 + d8*8 + d9*9
-            print(f'Soma dos 9 dígitos: {soma9digitos}')
             resto = soma9digitos%11
-            print(f'Resto 1 = {resto}')
             digitoVerificador1 = str(resto)[-1]
-            print('1º Dígito verificador: {}'.format(digitoVerificador1))
             
             soma10digitos = d1*0 + d2*1 + d3*2 + d4*3 + d5*4 + d6*5 + d7*6 + d8*7 + d9*8 + int(digitoVerificador1)*9
-            print(f'Soma dos 10 dígitos: {soma10digitos}')
             resto2 = soma10digitos % 11
-            print(f'Resto 2 = {resto2}')
             digitoVerificador2 = str(resto2)[-1]
-            print('2º Dígito verificador: {}'.format(digitoVerificador2))
 
             if cpf[-2:] == digitoVerificador1+digitoVerificador2:
                 print(f'Esse CPF de {self.nome} é válido.')

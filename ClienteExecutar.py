@@ -8,3 +8,23 @@ leticia.setCPF()
 leticia.validarCPF()
 
 print()
+
+leo = Cliente()
+leo.nome = 'Léo Morais'
+leo.setEndereco()
+leo.setIdade()
+leo.setCPF()
+leo.validarCPF()
+
+print()
+
+ciro = Cliente()
+ciro.nome = 'Ciro Moura'
+ciro.setEndereco()
+ciro.setIdade()
+ciro.setCPF()
+ciro.validarCPF()
+
+leticia.getDados()
+leo.getDados()
+ciro.getDados()
