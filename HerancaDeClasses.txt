@@ -1,0 +1,15 @@
+- A herança elimina a necessidade de duplicar o código.
+Isso porque são compartilhados atributos e comportamentos entre as classes de uma hierarquia.
+   ~ Superclasse => subclasse
+
+Exemplo de Herança:
+Um cliente e um funcionário também são pessoas, não são?
+Então temos uma superclasse Pessoa e subclasses Cliente e Funcionario.
+
+
+Tipos:
+- Simples: Quando herda só de 1 classe
+- Múltipla: Quando herda de 2 ou mais classes (no JAVA não tem; no PYTHON pode)
+
+------------------------------------------------------------------------------------------------------------------
+Polimorfismo: O conceito de que o comportamento (gerado pelos MÉTODOS) pode ser diferente...
