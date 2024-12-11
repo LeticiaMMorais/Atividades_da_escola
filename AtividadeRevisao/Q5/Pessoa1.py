@@ -6,3 +6,6 @@ class Pessoa():
     def verProduto(self, produtoBuscado:str):
         print(f'Alguém ({self._nome}) está procurando por {produtoBuscado}.')
 
+    def falar(self):
+        print('Olá!')
+
