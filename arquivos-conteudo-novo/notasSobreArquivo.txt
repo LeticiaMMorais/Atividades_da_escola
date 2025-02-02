@@ -1,0 +1,77 @@
+Sempre que um programa é executado os dados gerados nesse programa ficam na mémoria volátil (memória temporária). Dessa forma, quando o computador é desligado ou o programa encerrado, os dados se perdem. Então, faz-se necessário arranjar uma forma de deixar esses dados guardados de forma permanente.
+
+Uma forma de armazenar os dados permanentemente é através de ARQUIVOS.
+Podemos organizar os arquivos dentro de diretórios (pastas) [em especial quando é um número grande de arquivos].
+Cada arquivo tem um nome único (ou uma combinação com o nome do arquivo e do diretório).
+
+Um arquivo pode ser de texto ou um arquivo binário;
+- Arquivos de texto (plaintext) são uma sequência
+estruturada de linhas com sequência de
+caracteres que podem ser mostrados diretamente na tela ou modificados por um editor de textos simples.
+- Arquivos binários é qualquer arquivo que não seja
+arquivo de texto padrão, como pdf, doc, imagens
+e etc, sendo uma "sequência de bits sujeita às convenções dosprogramas que o gerou, não legíveis diretamente. "
+
+
+OPERAÇÕES BÁSICAS para manipulação de arquivos:
+    Abertura do arquivo:
+        Leitura de conteúdo;
+        Escrita de conteúdo.
+    Fechamento do arquivo.
+
+Na hora de manipular o arquivo nós precisamos abrir o arquivo e fechar quando terminar o que estava fazendo (usando o arquivo, ou seja, lendo ou escrevendo) para economizar espaço e deixar mais rápido, sem consumir tanta memória RAM.
+
+"Para abrir um arquivo, é necessário ligar uma variável do programa com o arquivo físico; a variável será usada no programa para manipular o arquivo (ler e escrever)." 
+    Exemplo: f = open('teste.txt')
+        open() retorna um objeto do tipo file (arquivo):
+            • Seus dois argumentos são o caminho para o arquivo (com o nome do arquivo incluído) e o modo de uso (string): 
+            open(nomedoarquivo, modo)
+
+Os modos de uso são:
+r [read]: para leitura, somente, e o arquivo já deve existir (é o padrão);
+w [write]: para escrita; o conteúdo existente será apagado, ou seja, será reescrito; pode criar um novo arquivo para escrita;
+a [append]: para adicionar novas informações ao final do arquivo (não reescreve, só adiciona); o arquivo é criado se não existir.
+r+ : para leitura e escrita.
+w+ : para leitura e escrita; Cria um arquivo se não existir ou sobrescreve (reescreve) um arquivo existente.
+a+ : para leitura e escrita; o arquivo é criado se não existir.
+
+
+======== Lendo arquivos em Python ========
+Depois de abrir o arquivo, podemos ler o arquivo (se modo='r') com um dos métodos:
+- read(): "lê o arquivo todo de uma vez para uma variável. Isso ocorre em casos em que eu quero apenas exibir a variável."
+- readline(): retorna apenas uma linha do arquivo por chamada, sendo retornado na ordem em que aparecem no arquivo. Entende \n como final da linha; Se não encontrar nada na linha, entende com final do arquivo.
+- readlines(): lê todas as linhas do arquivo retornando uma lista em que cada elemento é uma string correspondente a uma linha do texto. 
+
+======== Escrevendo arquivos em Python ========
+Depois de abrir o arquivo num modo de escrever ou adicionar, podemos escrever uma nova informação com o método:
+- write(informacao_a_adicionar)
+
+======== Fechando arquivos em Python ========
+Podemos fechar um arquivo com método close()
+ou utilizando o comando with, que fecha o arquivo assim que saimos de seu bloco, da seguinte forma:
+with open('teste.txt', 'a') as arquivo:
+    arquivo.write('Escrevendo em arquivos')
+
+========= Serialização dos objetos ========
+• "Um objeto serializado é um objeto
+representado como uma sequência de bytes
+que inclui dados do objeto:
+    • Valores dos atributos;
+    • Tipos de dados armazenados;
+    • Tipo do objeto.
+• Ao serializar um objeto, ele será gravado em
+um arquivo;
+• O objeto pode ser utilizado novamente
+depois que o arquivo é lido e o objeto é
+desserializado."
+Logo, para fazer o armazenamento de objeto Python, como um objeto da Classe Pessoa, por exemplo, é necessário fazer a manipulação de arquivos binários.
+A representação em binários ocupa menos espaço na memória que na forma de texto.
+
+Para manipular os arquivos binários, os modos de uso são:
+rb : lê arquivos binários - lê bytes - (assim como 'r' para arquivos de texto);
+wb : escreve arquivos binários - escreve bytes - (assim como 'w' para arquivos de texto);
+r+b : leitura e escrita; se o arquivo existir ele NÃO é sobrescrito; se não existir, a função gera uma exceção.
+
+Precisamos usar o módulo pickle (que deve ser importado: import pickle) para ler e escrever objetos um arquivo. Com ele podemos usar:
+    - pickle.dump(): escreve um objeto em um arquivo binário. Ele recebe como argumentos, respectivamente, o *objeto* a ser salvo num arquivo e *arquivo* que é a variável associada ao arquivo (previamente aberto em modo binário) onde o objeto será salvo.
+    - pickle.load(): lê um objeto em um arquivo binário. Ele recebe como argumento o *arquivo*, que é a variável associada ao arquivo (previamente aberto em modo binário) que será lido.
