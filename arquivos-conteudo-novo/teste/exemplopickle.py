@@ -36,10 +36,12 @@ pessoas.extend([a,b,c])
 arquivo = open('serializacao.txt','wb')
 for pessoa in pessoas:
     pickle.dump(pessoa, arquivo)
+arquivo.close()
 
 arquivo = open('serializacao.txt','rb')
 for num in range(len(pessoas)):
     retorno = pickle.load(arquivo)
     print(retorno.nome)
+arquivo.close()
 
 
