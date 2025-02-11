@@ -1,0 +1,3 @@
+Interface Gráfica
+A forma mais prática e agradável para o usuário é usando uma interface gráfica.
+A interface gráfica permite a interação com o usuário por meio dos elementos gráficos:
