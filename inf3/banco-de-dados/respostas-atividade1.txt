@@ -1,0 +1,78 @@
+-- Atividade de Banco de Dados:
+-- -------------------------------------------------------------------------------
+-- Parte 1:
+-- Exercício 1:
+CREATE TABLE IF NOT EXISTS Cliente(
+	id_cliente INT,
+	nome VARCHAR(100),
+	email VARCHAR(100) NOT NULL,
+	data_nascimento DATE
+);
+
+--Exercício 2:
+CREATE TABLE IF NOT EXISTS  Produto(
+	id_produto INT,
+	nome VARCHAR(100),
+	preco DECIMAL(10, 2)
+);
+
+-- O decimal limita o total de casas decimais.
+-- O Double precision não tem limitação e não arredonda
+-- O real é preciso, de certa forma, mas arredonda. 
+
+--  Exercício 3:
+CREATE TABLE IF NOT EXISTS  Pedido(
+	id_pedido	 INT,
+	id_cliente INT,
+	data_pedido DATE
+);
+
+-- -------------------------------------------------------------------------------
+--Parte 2:
+-- Exercício 4:
+ALTER TABLE Cliente
+ADD CONSTRAINT pk_cliente
+PRIMARY KEY (id_cliente);
+
+-- Exercício 5:
+-- A chave estrangeira deve se ligar a uma chave primária ou um UNIQUE da outra tabela, porque precisa-se de ser um valor único. 
+-- Se não tivesse colocado id_cliente como chave primária antes, teria dado erro
+ALTER TABLE Pedido
+ADD CONSTRAINT fk_cliente
+FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente);
+
+-- -------------------------------------------------------------------------------
+-- Parte 3:
+-- Exercício 1:
+CREATE TABLE IF NOT EXISTS Funcionario(
+	id_funcionario INT NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	cargo VARCHAR(100),
+	salario DECIMAL(10, 2) NOT NULL
+);
+
+-- Exercício 2:
+CREATE TABLE IF NOT EXISTS Departamento(
+	id_departamento INT NOT NULL,
+	nome VARCHAR(50) NOT NULL
+);
+
+-- Exercício 3:
+CREATE TABLE IF NOT EXISTS Projeto(
+	id_projeto INT,
+	id_departamento INT,
+	descricao TEXT
+);
+
+-- -------------------------------------------------------------------------------
+-- Parte 4:
+-- Exercício 4:
+ALTER TABLE Departamento
+ADD CONSTRAINT pk_departamento
+PRIMARY KEY (id_departamento);
+
+-- Exercício 5:
+ALTER TABLE Projeto
+ADD CONSTRAINT fk_departamento
+FOREIGN KEY (id_departamento) REFERENCES Departamento(id_departamento);
+
