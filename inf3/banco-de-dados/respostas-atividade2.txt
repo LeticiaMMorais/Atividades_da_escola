@@ -1,0 +1,61 @@
+-- Criando as tabelas:
+
+CREATE TABLE IF NOT EXISTS Aluno(
+    id INT NOT NULL, -- Vai ser uma chave primária
+    matricula INT NOT NULL, -- Vai ser um UNIQUE mais tarde
+    nome VARCHAR(40),
+    sobrenome VARCHAR(100),
+    idade INT,
+    sexo CHAR(15)
+);
+
+CREATE TABLE IF NOT EXISTS Disciplina(
+    id INT NOT NULL, -- Vai ser uma chave primária
+    nome VARCHAR(200) NOT NULL,
+    professor VARCHAR(200),
+    carga_horaria INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Cursa(
+    id_aluno INT NOT NULL,
+    id_disciplina INT NOT NULL,
+    semestre INT NOT NULL
+);
+
+-- Alterando a tabela Aluno e criando um atributo "id_turma".
+ALTER TABLE Aluno
+ADD id_turma INT;
+
+-- Definindo os "id" como chaves primárias de Aluno e Disciplina:
+ALTER TABLE Aluno
+ADD CONSTRAINT pk_aluno
+PRIMARY KEY(id);
+
+ALTER TABLE Disciplina
+ADD CONSTRAINT pk_disciplina
+PRIMARY KEY(id);
+
+
+-- Definindo Matrícula como único (UNIQUE) para aluno:
+ALTER TABLE Aluno
+ADD CONSTRAINT u_matricula_aluno
+UNIQUE(matricula);
+
+-- Inserindo 4 alunos e 2 disciplinas:
+INSERT INTO Aluno(id, matricula, nome, sobrenome, idade, sexo, id_turma) VALUES(100, 231, 'Letícia Maria', 'Morais', 17, 'Feminino', 2023),(102, 232, 'Anna Angelina', 'de Brito Oliveira', 17, 'Feminino', 2023), (103, 233, 'Gerson Emanuel', 'Sales dos Santos', 17, 'Masculino', 2023), (101,241, 'Everton Gean', 'de Oliveira Pinheiro', 19, 'Masculino', 2024);
+
+INSERT INTO Disciplina(id, nome, professor, carga_horaria) VALUES(001, 'Banco de Dados', 'Thiago Henrique', 105), VALUES(002,'Sistemas Digitais', 'Manoel do Bonfim', 200);
+
+-- Vinculando os alunos às disciplinas:
+ALTER TABLE Cursa
+ADD CONSTRAINT fk_idaluno_aluno
+FOREIGN KEY(id_aluno) REFERENCES Aluno;
+
+ALTER TABLE Cursa
+ADD CONSTRAINT fk_iddisciplina_disciplina
+FOREIGN KEY(id_disciplina) REFERENCES Disciplina;
+
+INSERT INTO Cursa(id_aluno, id_disciplina, semestre) VALUES(100, 1, 5), (102,1,5),(103,1,5), (101,2,3);
+
+-- mostrando os alunos vinculados a uma disciplina:
+SELECT * FROM Aluno WHERE Aluno.id = Cursa.id_aluno AND Cursa.id_disciplina = Disciplina.id; 
