@@ -57,5 +57,23 @@ FOREIGN KEY(id_disciplina) REFERENCES Disciplina;
 
 INSERT INTO Cursa(id_aluno, id_disciplina, semestre) VALUES(100, 1, 5), (102,1,5),(103,1,5), (101,2,3);
 
--- mostrando os alunos vinculados a uma disciplina:
-SELECT * FROM Aluno WHERE Aluno.id = Cursa.id_aluno AND Cursa.id_disciplina = Disciplina.id; 
+-- ----------------------------------
+-- mostrando o id dos alunos vinculados a uma disciplina:
+SELECT id_aluno, id_disciplina from Cursa WHERE Cursa.id_disciplina = 1;
+
+-- mostrando o id dos alunos vinculados a outra disciplina:
+SELECT id_aluno, id_disciplina from Cursa WHERE Cursa.id_disciplina = 2;
+
+-- -----------------------------------
+-- Usando SELECT com INNER JOIN:
+-- Disciplina 1:
+SELECT Cursa.id_aluno, Aluno.nome, Aluno.sobrenome, Cursa.id_disciplina, Disciplina.nome 
+FROM Aluno 
+INNER JOIN Cursa ON Cursa.id_disciplina = 1 AND Aluno.id = Cursa.id_aluno 
+INNER JOIN Disciplina ON Cursa.id_disciplina = Disciplina.id;
+
+-- Disciplina 2:
+SELECT Cursa.id_aluno, Aluno.nome, Aluno.sobrenome, Cursa.id_disciplina, Disciplina.nome 
+FROM Aluno 
+INNER JOIN Cursa ON Cursa.id_disciplina = 2 AND Aluno.id = Cursa.id_aluno 
+INNER JOIN Disciplina ON Cursa.id_disciplina = Disciplina.id;
