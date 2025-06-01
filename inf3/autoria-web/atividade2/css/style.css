@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    background-color: #D9EBFE;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    margin: 2vh 0;
+}
+
+p {
+    color: #112A46;
+}
+
+table {
+    font-size: 1.2em;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+table th, table td, table tr {
+    border: solid 1px;
+}
+
+ul, ol {
+    margin-left: 2vw;
+}

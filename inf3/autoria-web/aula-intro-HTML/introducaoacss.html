@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução às CSS</title>
+    <link rel="stylesheet" href="css/styleintro.css">
+</head>
+<body>
+    <h1>Introdução às CSS</h1>
+    <h2>Sintaxe do CSS</h2>
+    <p>Nós temos um seletor para indicar no que eu quero colocar estilo. Para cada seletor, podemos colocar uma ou mais declarações, que são formadas por uma propriedade e um valor.</p>
+    <p>Exemplo:</p>
+
+    <h2>Importando as CSS</h2>
+    <p>É preciso usar a tag <code>link</code>, onde em <code>rel</code> você indica o tipo de arquivo (no caso é stylesheet) e no <code>href</code> é indicado o caminho para o arquivo css que vai dar estilo à página: </p>
+    <pre><code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code></pre>
+    <p>Ele é colocado dentro do head.</p>
+
+    <h2>Tipos de seletores</h2>
+    <p>Há três tipos de seletores:</p>
+    <ul>
+        <li>elemento</li>
+        <li>id</li>
+        <li>classe</li>
+    </ul>
+    <p>Cada um tem uma especificidade. Os valores mais a esquerda na especificidade (ou maior valor) ele vai ter aquela propriedade sobresaída.</p>
+    <p>Você também pode combinar seletores para especificar mais.</p>
+
+    <h3>Seletor de elemento</h3>
+    <p>Seleciona o elemento baseado em sua tag.</p>
+    <p>Exemplo:</p>
+
+    <p>Podemos selecionar mais de um separando com uma vírgula (,):</p>
+
+    <p>Ele tem menor especificidade -> (0, 0, 1)</p>
+
+    <h3>Seletor de ID</h3>
+    <p>O id é único, não pode ser usado o mesmo id para elementos diferentes, ele deve ser usado uma única vez. É como se fosse o CPF do elemtento.</p>
+    <p>Para indicar um seletor de id, você coloca # seguido pelo o id do elemento.</p>
+    <p>Tem a maior especificidade -> (1, 0, 0)</p>
+
+    <h3>Seletor de classe</h3>
+    <p>Posso definir uma mesma classe para mais de um elemento. Eles vão compartilhar caracteríticas comuns, por isso estarão na mesma classe.</p>
+    <p>Um só elemento pode ter uma ou mais classes, sendo elas separadas por um espaço. Se tiver suas classes e elas alterar uma mesma caracterítica (cor, por exemplo), irá prevalecer a da última classe definida.</p>
+
+    <h2>Organização</h2>
+    <p>Uma sugestão é organizar o css colocando na ordem:</p>
+    <ol>
+        <li>seletores de elemento</li>
+        <li>seletores de classe</li>
+        <li>seletores de id</li>
+    </ol>
+
+    <h2>Algumas propriedades e valores</h2>
+    <p>A propriedade <code>background-color</code> muda a cor de fundo do elemento</p>
+    <p>Os valores de cor podem ser hexadecimal, RGB, nome...</p>
+<!-- 
+    <h3>Formatação de texto:</h3>
+    <p>Propriedade text</p> -->
+
+</body>
+</html>

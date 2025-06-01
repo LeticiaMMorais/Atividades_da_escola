@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 5vh 10vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 2vh 0;
+}
+
+h1{
+    color:darkcyan;
+    margin: 2vh 0;
+}
+
+p {
+    margin: 4px;
+}
+
+ul, ol {
+    margin-left: 2vw;
+}
