@@ -4,23 +4,62 @@
     box-sizing:border-box;
 }
 
+/*---------------------
+-       navbar        -
+----------------------*/
+nav{
+    background-color: #607087;
+    height: 3em;
+    align-content: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly; /* Espaço uniforme entre os itens */
+}
+
+nav li a {
+    
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+nav li a:hover {
+    text-decoration: underline;
+    font-size: 1.2em;   
+}
+
+.maiusculo {
+    text-transform: uppercase;
+}
+
+/*---------------------
+-       corpo         -
+----------------------*/
 body {
-    background-color: #D9EBFE;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F0F4F8;
 }
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin: 2vh 0;
+    color:#3B4248;
 }
 
 p {
-    color: #112A46;
+    color: hsl(212, 61%, 17%);
+    margin: 0.8vh;
 }
+
 
 table {
     font-size: 1.2em;
     border: solid 1px;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Diz para as linhas da tabela ficarem juntas, colapsar */
 }
 
 table th, table td, table tr {
@@ -29,4 +68,47 @@ table th, table td, table tr {
 
 ul, ol {
     margin-left: 2vw;
+}
+
+img {
+    margin: 2vh auto;
+    align-content: center;
+    width: 90%;
+}
+
+.site-content {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    margin: auto;
+    padding: 4vh 2vw 10vh 2vw;
+
+}
+
+#mapa-invasao-ucrania {
+    height: auto;
+}
+
+#site-onu{
+    text-decoration: none;
+    color:#1573b7 ;
+}
+
+#site-onu:hover, #site-onu:focus{
+    color: #4B5F73;
+}
+
+@media (min-width: 769px) {
+    nav li a {
+        font-size: 1.4em;
+    }
+
+    nav li a:hover,  nav li a:focus{
+        font-size: 1.5em;
+    }
+
+    #mapa-invasao-ucrania {
+        height: 80vh;
+        width:auto;
+    }
 }
