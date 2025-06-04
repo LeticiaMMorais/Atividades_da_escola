@@ -9,7 +9,7 @@
 ----------------------*/
 nav{
     background-color: #607087;
-    height: 3em;
+    height: 4em;
     align-content: center;
 }
 
@@ -76,14 +76,20 @@ img {
     width: 90%;
 }
 
+.site{
+    display:flex;
+    flex-direction: column;
+}
+
 .site-content {
     display: flex;
     flex-direction: column;
     width: 75vw;
     margin: auto;
     padding: 4vh 2vw 10vh 2vw;
-
+    flex: 1 1 0;
 }
+
 
 #mapa-invasao-ucrania {
     height: auto;
@@ -98,6 +104,26 @@ img {
     color: #4B5F73;
 }
 
+/*---------------------
+-       rodape        -
+----------------------*/
+.rodape {
+    display: flex;
+    justify-content: center; /*Alinha horizontalmente*/
+    align-items: center; /*Alinha verticalmente*/
+    text-align: center;
+    height: 5em;
+    background-color: #607087;
+}
+
+.rodape p {
+    color: white;
+}
+
+
+/*-------------------------
+- media queries - detalhe -
+---------------------------*/
 @media (min-width: 769px) {
     nav li a {
         font-size: 1.4em;
