@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Aluno(
     nome VARCHAR(40),
     sobrenome VARCHAR(100),
     idade INT,
-    sexo CHAR(15)
+    sexo CHAR(1)
 );
 
 CREATE TABLE IF NOT EXISTS Disciplina(
@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS Disciplina(
 );
 
 CREATE TABLE IF NOT EXISTS Cursa(
-    id_aluno INT NOT NULL,
-    id_disciplina INT NOT NULL,
+    id_aluno INT NOT NULL, -- Chave estrangeira não deveria ser NOT NULL, porque ela pode ser nula sim, mas, nesse caso, também vai ser uma chave primária, então tem que ser NÃO NULA.
+    id_disciplina INT NOT NULL, -- Imagina se o aluno só tivesse matriculado e não fizesse nenhuma disciplina, então é melhor deixar o valor nulo.
     semestre INT NOT NULL
 );
 
@@ -42,22 +42,35 @@ ADD CONSTRAINT u_matricula_aluno
 UNIQUE(matricula);
 
 -- Inserindo 4 alunos e 2 disciplinas:
-INSERT INTO Aluno(id, matricula, nome, sobrenome, idade, sexo, id_turma) VALUES(100, 231, 'Letícia Maria', 'Morais', 17, 'Feminino', 2023),(102, 232, 'Anna Angelina', 'de Brito Oliveira', 17, 'Feminino', 2023), (103, 233, 'Gerson Emanuel', 'Sales dos Santos', 17, 'Masculino', 2023), (101,241, 'Everton Gean', 'de Oliveira Pinheiro', 19, 'Masculino', 2024);
+INSERT INTO Aluno(id, matricula, nome, sobrenome, idade, sexo, id_turma) 
+VALUES(100, 231, 'Letícia Maria', 'Morais', 17, 'F', 2023),
+(102, 232, 'Anna Angelina', 'de Brito Oliveira', 17, 'F', 2023), 
+(103, 233, 'Gerson Emanuel', 'Sales dos Santos', 17, 'M', 2023), 
+(101,241, 'Everton Gean', 'de Oliveira Pinheiro', 19, 'M', 2024);
 
-INSERT INTO Disciplina(id, nome, professor, carga_horaria) VALUES(001, 'Banco de Dados', 'Thiago Henrique', 105), VALUES(002,'Sistemas Digitais', 'Manoel do Bonfim', 200);
+INSERT INTO Disciplina(id, nome, professor, carga_horaria) 
+VALUES(001, 'Banco de Dados', 'Thiago Henrique', 105), 
+(002,'Sistemas Digitais', 'Manoel do Bonfim', 200);
 
 -- Vinculando os alunos às disciplinas:
+-- Se não definir uma chave primária, corre o risco de repetir o aluno numa mesma disciplina.
 ALTER TABLE Cursa
-ADD CONSTRAINT fk_idaluno_aluno
-FOREIGN KEY(id_aluno) REFERENCES Aluno;
+ADD CONSTRAINT pk_cursa
+PRIMARY KEY(id_disciplina, id_aluno); -- Elas são definidas juntas por atuam juntas, se for colocar uma e depois tentar colocar outra, vai dar erro.
+
 
 ALTER TABLE Cursa
-ADD CONSTRAINT fk_iddisciplina_disciplina
-FOREIGN KEY(id_disciplina) REFERENCES Disciplina;
+ADD CONSTRAINT fk_aluno
+FOREIGN KEY(id_aluno) REFERENCES Aluno(id);
+
+ALTER TABLE Cursa
+ADD CONSTRAINT fk_disciplina
+FOREIGN KEY(id_disciplina) REFERENCES Disciplina(id);
 
 INSERT INTO Cursa(id_aluno, id_disciplina, semestre) VALUES(100, 1, 5), (102,1,5),(103,1,5), (101,2,3);
 
 -- ----------------------------------
+-- SELECT apenas com a relação Cursa:
 -- mostrando o id dos alunos vinculados a uma disciplina:
 SELECT id_aluno, id_disciplina from Cursa WHERE Cursa.id_disciplina = 1;
 
@@ -68,8 +81,8 @@ SELECT id_aluno, id_disciplina from Cursa WHERE Cursa.id_disciplina = 2;
 -- Usando SELECT com INNER JOIN:
 -- Disciplina 1:
 SELECT Cursa.id_aluno, Aluno.nome, Aluno.sobrenome, Cursa.id_disciplina, Disciplina.nome 
-FROM Aluno 
-INNER JOIN Cursa ON Cursa.id_disciplina = 1 AND Aluno.id = Cursa.id_aluno 
+FROM Cursa
+INNER JOIN Aluno ON Cursa.id_disciplina = 1 AND Aluno.id = Cursa.id_aluno 
 INNER JOIN Disciplina ON Cursa.id_disciplina = Disciplina.id;
 
 -- Disciplina 2:

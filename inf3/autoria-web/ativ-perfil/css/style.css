@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: bisque;
+}
+
+/*-Margem Inferior de 30px
+-Borda Inferior de  4px
+-Preenchimento em todos os lados de 20px 
+no título:*/
+.titulo {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-bottom: 4px hidden burlywood;
+    background-color: rgb(248, 197, 153);
+}
+
+/* 
+Margem Inferior de 20px
+Borda com todos os lados de 5px
+Preenchimento em todos os lados de 8px
+*/
+.foto-perfil{
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    padding: 8px;
+    border: 5px solid burlywood;
+    border-radius: 150px;
+}
+
+/*Margem Superior de 40px
+Borda Superior de 2px
+Preenchimento em todos os lados de 15px*/
+.descricao{
+    width: 95%;
+    margin-top: 40px;
+    padding: 15px;
+    border-top: 2px dashed burlywood;
+}
+
+.botao{
+    display: inline-block;
+    height: 65px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 3px solid  rgb(235, 139, 14);
+    border-radius: 40px;
+    background-color: rgb(235, 139, 14);
+    color: white;
+    text-decoration: none;
+}
