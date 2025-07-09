@@ -6,10 +6,10 @@
 
 :root {
     --primary-color: #d4841c;
-    --primary-color2: #e4ecb4 ;
-    --primary-color3: #c42c14;
+    /* --primary-color2: #e4ecb4 ;
+    --primary-color3: #c42c14; */
     --primary-color4: #a56353;
-    --primary-color5: #ccd4a4;
+    /* --primary-color5: #ccd4a4; */
 }
 
 body{
@@ -31,7 +31,8 @@ body{
     font-family: "Bebas Neue", sans-serif; 
     text-align: center;
     color: white;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 
@@ -67,6 +68,7 @@ body{
 .nome{
     font-family:cursive;
 }
+
 .descricao{
     width: 95%;
     height: 100%;
@@ -80,7 +82,7 @@ body{
     height: 200px;
     margin-top: 40px;
     padding: 15px;
-    border-top: 2px hidden var(--primary-color);
+    border-top: 2px outset var(--primary-color);
     background-image: url("../img/rodape-ondulado-200altura.png");
     background-repeat: repeat-x;
     justify-content: center;
@@ -94,16 +96,3 @@ body{
 .rodape a:hover, .rodape a:focus{
     color: var(--primary-color);
 }
-
-/* 
-.botao{
-    display: inline-block;
-    height: 65px;
-    margin: 50px auto;
-    padding: 30px;
-    border: 3px solid  rgb(235, 139, 14);
-    border-radius: 40px;
-    background-color: rgb(235, 139, 14);
-    color: white;
-    text-decoration: none;
-} */

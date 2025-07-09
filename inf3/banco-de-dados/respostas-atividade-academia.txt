@@ -1,0 +1,166 @@
+-- ATIVIDADE DE DER - INF3M
+-- Letícia Maria Morais
+
+
+CREATE TABLE IF NOT EXISTS Aluno (
+	id_aluno SERIAL,
+	nome VARCHAR(120),
+	data_nascimento DATE,
+	cpf VARCHAR(11) NOT NULL,
+	email VARCHAR(100),
+	telefone VARCHAR(20),
+	data_matricula DATE NOT NULL
+);
+
+ALTER TABLE Aluno 
+ADD CONSTRAINT pk_aluno
+PRIMARY KEY (id_Aluno);
+
+ALTER TABLE Aluno 
+ADD CONSTRAINT u_cpf_aluno
+UNIQUE (cpf);
+
+
+-- ---------
+CREATE TABLE IF NOT EXISTS Plano (
+	id_plano SERIAL,
+	nome VARCHAR(120) NOT NULL,
+	preco_mensal DECIMAL(10,2) NOT NULL,
+	duracao_minima_h INT NOT NULL
+);
+ALTER TABLE Plano
+ADD CONSTRAINT pk_plano
+PRIMARY KEY (id_plano);
+
+CREATE TABLE IF NOT EXISTS Matricula (
+	id_matricula SERIAL,
+	id_aluno INT,
+	id_plano INT,
+	data_inicio DATE,
+	status VARCHAR(9) CHECK (status IN ('ativa', 'cancelada'))
+);
+ALTER TABLE Matricula
+ADD CONSTRAINT pk_matricula
+PRIMARY KEY (id_matricula);
+
+ALTER TABLE Matricula
+ADD CONSTRAINT fk_aluno
+FOREIGN KEY (id_aluno) REFERENCES Aluno(id_aluno);
+
+ALTER TABLE Matricula
+ADD CONSTRAINT fk_plano
+FOREIGN KEY (id_plano) REFERENCES Plano(id_plano);
+
+-- ---
+CREATE TABLE IF NOT EXISTS Pagamento (
+	id_pagamento SERIAL,
+	id_matricula INT,
+	data VARCHAR(7),
+	valor DECIMAL(10,2),
+	metodo VARCHAR(7) CHECK (metodo IN ('pix','crédito', 'débito', 'espécie')),
+	status VARCHAR(9) CHECK (status IN ('pago', 'não pago'))
+);
+ALTER TABLE Pagamento
+ADD CONSTRAINT pk_pagamento
+PRIMARY KEY (id_pagamento);
+
+ALTER TABLE Pagamento
+ADD CONSTRAINT fk_matricula
+FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula);
+
+ALTER TABLE Pagamento
+ADD CONSTRAINT u_pagamento_matdata
+UNIQUE(id_matricula, data);
+
+-- ---
+CREATE TABLE IF NOT EXISTS Instrutor (
+	id_instrutor SERIAL,
+	nome VARCHAR(120),
+	especialidade VARCHAR(100)
+);
+ALTER TABLE Instrutor
+ADD CONSTRAINT pk_instrutor
+PRIMARY KEY (id_instrutor);
+
+
+CREATE TABLE IF NOT EXISTS Aula (
+	id_aula SERIAL,
+	nome VARCHAR(100) NOT NULL,
+	capacidade INT
+);
+ALTER TABLE Aula
+ADD CONSTRAINT pk_aula
+PRIMARY KEY(id_aula);
+
+
+CREATE TABLE IF NOT EXISTS Turma (
+	id_turma SERIAL,
+	id_aula INT,
+	id_instrutor INT,
+	dia_semana VARCHAR(13),
+	horario VARCHAR(5),
+	unidade INT
+);
+ALTER TABLE Turma
+ADD CONSTRAINT pk_turma 
+PRIMARY KEY(id_turma);
+
+ALTER TABLE Turma
+ADD CONSTRAINT fk_aula
+FOREIGN KEY (id_aula) REFERENCES Aula(id_aula);
+
+ALTER TABLE Turma
+ADD CONSTRAINT fk_instrutor
+FOREIGN KEY (id_instrutor) REFERENCES Instrutor(id_instrutor);
+
+-- ---
+
+CREATE TABLE IF NOT EXISTS InscricaoTurma (
+	id_inscricao SERIAL,
+	id_aluno INT,
+	id_turma INT,
+	data_inscricao DATE
+);
+ALTER TABLE InscricaoTurma
+ADD CONSTRAINT pk_inscricao
+PRIMARY KEY (id_inscricao);
+
+ALTER TABLE InscricaoTurma
+ADD CONSTRAINT fk_aluno
+FOREIGN KEY (id_aluno) REFERENCES Aluno(id_aluno);
+
+ALTER TABLE InscricaoTurma
+ADD CONSTRAINT fk_turma
+FOREIGN KEY (id_turma) REFERENCES Turma(id_turma);
+
+ALTER TABLE InscricaoTurma
+ADD CONSTRAINT u_inscricao_alunoturma
+UNIQUE (id_aluno, id_turma);
+
+CREATE TABLE IF NOT EXISTS Frequencia (
+	id_presenca SERIAL,
+	id_inscricao INT,
+	data DATE,
+	status VARCHAR(8) CHECK (status IN ('presente','ausente'))
+);
+ALTER TABLE Frequencia
+ADD CONSTRAINT pk_frequencia
+PRIMARY KEY (id_presenca);
+
+ALTER TABLE Frequencia
+ADD CONSTRAINT fk_InscricaoTurma
+FOREIGN KEY (id_inscricao) REFERENCES InscricaoTurma(id_inscricao);
+
+-- ---
+CREATE TABLE IF NOT EXISTS Equipamento (
+	id_equipamento SERIAL,
+	nome VARCHAR(100),
+	data_aquisicao DATE,
+	status VARCHAR(10) CHECK (status IN ('ativo','manutenção')),
+	unidade INT
+);
+
+ALTER TABLE Equipamento
+ADD CONSTRAINT pk_equipamento
+PRIMARY KEY (id_equipamento);
+
