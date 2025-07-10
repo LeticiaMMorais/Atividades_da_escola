@@ -4,27 +4,22 @@
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #d4841c;
-    /* --primary-color2: #e4ecb4 ;
-    --primary-color3: #c42c14; */
-    --primary-color4: #a56353;
-    /* --primary-color5: #ccd4a4; */
-}
 
 body{
     background-color: bisque;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*cabeçalho*/
+/*-----------*/
+/*-cabeçalho-*/
+/*-----------*/
 .cabecalho {
     width: 100%;
     height: 86px;
     margin-bottom: 30px;
     padding: 20px;
     border-bottom: 4px double bisque;
-    background-color: var(--primary-color);
+    background-color: #d4841c;
 }
 
 .titulo {
@@ -36,8 +31,9 @@ body{
 }
 
 
-
-/*cartão*/
+/*----------*/
+/*- cartão -*/
+/*----------*/
 .card {
     display: flex;
     flex-direction: row;
@@ -45,7 +41,7 @@ body{
     height: 90%;
     margin: 50px auto;
     padding: 30px;
-    border: 3px solid var(--primary-color); /* rgb(235, 139, 14) */
+    border: 3px solid #d4841c; /* rgb(235, 139, 14) */
     border-radius: 15px;
 }
 
@@ -75,24 +71,35 @@ body{
     margin: 3px 0;
 }
 
-/*rodapé*/
+/*----------*/
+/*- rodapé -*/
+/*----------*/
 .rodape{
-    display:flex;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 200px;
     margin-top: 40px;
     padding: 15px;
-    border-top: 2px outset var(--primary-color);
+    border-top: 2px outset #d4841c;
     background-image: url("../img/rodape-ondulado-200altura.png");
     background-repeat: repeat-x;
-    justify-content: center;
+}
+.rodape p{
+    text-align: center;
 }
 
-.rodape a{
+.rodape p a{
     text-decoration: none;
-    color: var(--primary-color4);
+    color: #a56353;
 }
 
-.rodape a:hover, .rodape a:focus{
-    color: var(--primary-color);
+.rodape p a:hover, .rodape p a:focus{
+    color: #d4841c;
+}
+
+.rodape p:nth-child(2){
+    margin-top: 130px;
+    color: white;
+    font-size: 12px;
 }
