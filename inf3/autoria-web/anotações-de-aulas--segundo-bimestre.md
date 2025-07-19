@@ -60,14 +60,6 @@ Todo o conteúdo da HOME precisa estar no main. Todo o conteúdo que eu tiver, o
 
 
 
-
-
-Pergunta: o que é container? #Você precisa saber
-
----
-
-
-
 A seção precisa ser PARTE de um conteúdo, não o conteúdo todo, e precisa ter um título.
 
 
