@@ -71,6 +71,11 @@ body{
     margin: 3px 0;
 }
 
+.negrito-alaranjado {
+    font-weight: 700;
+    color:#923f12
+}
+
 /*----------*/
 /*- rodapé -*/
 /*----------*/
@@ -84,6 +89,8 @@ body{
     border-top: 2px outset #d4841c;
     background-image: url("../img/rodape-ondulado-200altura.png");
     background-repeat: repeat-x;
+    position: relative;
+    bottom: 0;
 }
 .rodape p{
     text-align: center;
