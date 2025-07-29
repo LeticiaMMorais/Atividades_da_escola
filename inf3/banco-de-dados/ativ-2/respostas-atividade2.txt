@@ -45,8 +45,8 @@ UNIQUE(matricula);
 INSERT INTO Aluno(id, matricula, nome, sobrenome, idade, sexo, id_turma) 
 VALUES(100, 231, 'Letícia Maria', 'Morais', 17, 'F', 2023),
 (102, 232, 'Anna Angelina', 'de Brito Oliveira', 17, 'F', 2023), 
-(103, 233, 'Gerson Emanuel', 'Sales dos Santos', 17, 'M', 2023), 
-(101,241, 'Everton Gean', 'de Oliveira Pinheiro', 19, 'M', 2024);
+(103, 233, 'Gerson Emanuel', 'Sales dos Santos', 18, 'M', 2023), 
+(101,241, 'Lucas', 'Vieira Alves', 17, 'M', 2024);
 
 INSERT INTO Disciplina(id, nome, professor, carga_horaria) 
 VALUES(001, 'Banco de Dados', 'Thiago Henrique', 105), 

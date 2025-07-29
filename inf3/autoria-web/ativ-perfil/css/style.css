@@ -52,6 +52,7 @@ body{
     margin-left: 20px;
 }
 
+
 /*imagem*/ /*Está dentro do cartão.*/
 .foto-perfil{
     width: 300px;
@@ -75,6 +76,18 @@ body{
     font-weight: 700;
     color:#923f12
 }
+
+/*----------*/
+/*-  feed  -*/
+/*----------*/
+.feed-container {
+    height: 210px;
+    overflow: scroll;
+    .feed-image{
+        height: 200px;
+    }
+}
+
 
 /*----------*/
 /*- rodapé -*/

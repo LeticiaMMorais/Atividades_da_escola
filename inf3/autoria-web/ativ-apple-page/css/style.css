@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FAFAFA;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.black-background {
+    background-color: #010101;
+}
+/*
+----------------------------------------
+   Header
+----------------------------------------
+*/
+
+header {
+    padding-top: 0.625rem;/*10px*/
+    height: 3rem; /*48px*/
+    background-color: #444445;
+}
+
+header h1{
+    display: inline;
+}
+
+header .logo {
+    width: 1.125rem; /*18px */
+}
+header .logo:hover,
+header .logo:focus{
+    filter: brightness(2); /*Aumenta o brilho da imagem quando está com o mouse em cima ou emcom o elemento em foco, a fim de deixar a imagem mais clara.*/
+}
+
+
+/*
+----------------------------------------
+   Navigation 
+----------------------------------------
+*/
+nav {
+    display: inline;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 2rem;
+}
+
+nav ul li a{
+    color: #A6B1B7;
+}
+
+nav ul li a:hover, 
+nav ul li a:focus {
+    color:#FFFFFF;
+}
+
+
+/*
+----------------------------------------
+   Section
+----------------------------------------
+*/
+section {
+    margin: auto;
+    padding: 2rem 0;
+    width: 50rem; /*800px*/
+}
+
+section h2 {
+    margin: 3.75rem 0 0.5rem 0; /*60px 0 8px 0;*/
+    font-size: 4.5rem; /*72px*/
+    text-align: center;
+}
+
+section p, section a{
+    margin: 5px 0;
+    font-size: 1.875rem; /*30px*/
+    text-align: center;
+    
+}
+
+section a{
+    margin: 0 15px;
+    font-size: 1.5rem; /*24px*/
+    color: #0066CC;
+}
+
+section a:hover,
+section a:focus{
+    color: hsl(210, 100%, 60%);
+}
+
+section.iphone-section img{
+    display: block;
+    margin: auto;
+    width: 50rem;
+}
+
+
+section.apple-watch-section{
+    color: #FFFFFF;
+}
+
+section.apple-watch-section h2{
+    text-transform: uppercase;
+}
+
+section.apple-watch-section img{
+    display: block;
+    margin: auto;
+    width: 39.25rem; /*628px*/
+}
+
+
+
+/*
+----------------------------------------
+   Footer
+----------------------------------------
+*/
+footer{
+    background-color: #F5F5F7;
+    color: #6E6E73;
+    
+}
+
+.footer-content {
+    margin: auto;
+    width: 55.625rem; /*890px*/
+}
+
+footer p{
+    margin: 1.125rem 0;
+}
+
+footer ul {
+    margin-bottom: 1.125rem 0;
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 2.25rem; /* 0 36px*/
+}
+
+footer ul li a{
+    color:#424245;
+}
+
+footer ul li a:hover,
+footer ul li a:focus{
+    color:hsl(240, 2%, 50%);
+}
