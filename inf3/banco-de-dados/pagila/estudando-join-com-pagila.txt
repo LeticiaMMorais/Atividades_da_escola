@@ -1,0 +1,35 @@
+-- For each customer, list:
+-- -- Their full name
+-- -- Their city and country
+-- -- The total number of rentals they’ve made
+-- -- The total amount they’ve spent
+-- -- The date of their last rental
+-- -- The name of the store’s manager they rent from
+-- Include all customers — even those who have never rented anything — but display 0 in counts/amounts for them.
+-- Sort by highest total amount spent, then by last rental date (most recent first).
+
+
+SELECT CONCAT(cust.first_name,' ',cust.last_name) AS costumer_name, 
+city.city, country.country,
+COUNT(DISTINCT rental.rental_id) AS totalrentals, 
+-- Quando eu agrupo colunas e peço para contar (COUNT()) estou pedindo para contar os registros daquele grupo, por grupo.
+SUM(amount) AS totalamount, 
+
+MAX(rental.rental_date) AS date_last_rental, --Por que nós colocamos o nome da tabela e por que funciona?
+
+CONCAT(staff.first_name, ' ', staff.last_name) AS manager_name
+
+FROM customer AS cust
+LEFT JOIN address USING(address_id)
+LEFT JOIN city USING(city_id)
+LEFT JOIN country USING(country_id)
+
+LEFT JOIN rental USING(customer_id)
+
+LEFT JOIN payment USING(customer_id)
+
+LEFT JOIN store USING(store_id)
+LEFT JOIN staff ON store.manager_staff_id = staff.staff_id
+
+GROUP BY cust.customer_id, cust.first_name, cust.last_name, city.city, country.country, staff.first_name, staff.last_name
+ORDER BY cust.first_name;

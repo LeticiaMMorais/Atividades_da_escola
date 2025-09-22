@@ -1,0 +1,57 @@
+-- -----------------------
+-- Letícia Maria Morais --
+-- -----------------------
+
+-- Questão 1 --
+SELECT customer_id, COUNT(*) as rentals
+FROM rental
+GROUP BY customer_id;
+
+-- -----------------------
+-- Questão 2 --
+SELECT customer_id, COUNT(*) as rentals
+FROM rental
+GROUP BY customer_id
+HAVING COUNT(*) > 30;
+
+-- -----------------------
+-- Questão 3 --
+WITH table_films 
+AS (SELECT film_id, title, COUNT(rental_id)
+	FROM rental INNER JOIN inventory USING(inventory_id)
+	INNER JOIN film USING(film_id)
+	GROUP BY film_id, title
+	ORDER BY COUNT(*) DESC
+)
+
+SELECT * FROM table_films LIMIT 5;
+
+
+-- -----------------------
+-- Questão 4 --
+SELECT film_id, title, name
+FROM film_category INNER JOIN film USING(film_id)
+INNER JOIN category USING(category_id)
+WHERE category.name IN ('Action','Comedy');
+
+
+-- -----------------------
+-- Questão 5 -- 
+WITH actors_busy
+AS (SELECT actor_id, COUNT(*) as total_films
+	FROM film_actor
+	GROUP BY actor_id
+	HAVING COUNT(*) > 10
+), actors_drama_horror
+AS (SELECT actor_id FROM actor INNER JOIN actors_busy USING (actor_id)
+	INNER JOIN film_actor USING (actor_id)
+	INNER JOIN film_category USING (film_id)
+	INNER JOIN category USING (category_id)
+	WHERE category.name IN ('Drama', 'Horror')
+	ORDER BY total_films DESC)
+
+SELECT DISTINCT ON (first_name, last_name, total_films) 
+first_name, last_name, total_films
+FROM actor INNER JOIN actors_busy USING(actor_id)
+INNER JOIN actors_drama_horror USING(actor_id)
+ORDER BY total_films DESC;
