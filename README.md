@@ -1,4 +1,2 @@
-# Olá, Mundo!
-Meu primeiro repositório!!
-
-Criado a partir do curso de Git e GitHub do Curso em Vídeo
+# Atividades escolares
+Esse repositório é para armazenar atividades e algumas anotações de aula feitas durante os anos do curso técnico integrado de informática.
