@@ -20,6 +20,7 @@ main {
 
 section {
     margin-bottom: 40px;
+    clear: both;
 }
 
 h1, h2, h3 {
@@ -68,19 +69,85 @@ nav ul li {
 
 nav ul a {
     margin: 0 15px;text-decoration: none;
+    font-weight: bold;
     color: #fff;
 }
 
-/*-----------------
-  Botão de reserva
--------------------*/
+nav ul a:hover {
+    color: #CCC;
+    
+}
 
+/*-----------------
+  Reserve Button 
+-------------------*/
+.btn-reserva {
+    padding: 15px 25px;
+    background-color: #27ae60;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+    
+    position: fixed;
+    bottom: 20px;
+    right: 20px;    
+}
+
+.btn-reserva:hover, .btn-reserva:focus{
+    background-color: #1c7d44;
+}
 
 
 /*-----------------
        Cards
 -------------------*/
+.card {
+    border: 1px solid #bdc3c7;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
 
+
+/*-----------------
+   Content styles
+-------------------*/
+/* -5 ºC with red color*/
+span.red-color {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+/* Floating image */
+.float-left {
+    margin: 0 20px 10px 0;
+    border-radius: 5px;
+    float: left;
+}
+
+section p:nth-child(5){
+    clear: both;
+}
+
+section {
+    clear: both;
+}
+
+/*-----------------
+    Galery section
+-------------------*/
+.galery-container {
+    height: 175px;
+    padding: 10px;
+    border: 1px solid #CCC; 
+    background-color: #ecf0f1;
+
+    overflow: auto;
+}
+
+.galery-container img {
+    border-radius: 4px;
+}
 
 
 /*-----------------
