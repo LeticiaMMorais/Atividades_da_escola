@@ -14,7 +14,7 @@ Adiciona a barra de rolagem apenas onde é necessário. Só vertical, só horizo
 ## float: (...);
 Funciona com qualquer tipo de elemento. (Em bloco ou em linha)
 Deixa o conteúdo "flutuante" e pode receber como valores: ```float: left;``` e ```float: right;```
-Sendo que o conteúdo que está abaixo irá subir para o lado.
+Sendo que o conteúdo que está abaixo irá subir para o lado oposto.
 
 Geralmente é aplicado quando queremos um texto com uma imagem ao lado.
 
