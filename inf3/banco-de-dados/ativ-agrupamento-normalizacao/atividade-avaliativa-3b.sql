@@ -10,7 +10,7 @@ SELECT c.customer_id,
 FROM customer AS c INNER JOIN rental USING (customer_id)
 INNER JOIN inventory USING(inventory_id) 
 INNER JOIN film USING(film_id)
-WHERE customer_id = 4;
+GROUP BY c.first_name, c.last_name;
 
 -- Question 2: List the attendant (staff) and quantity rented (use JOIN)
 SELECT staff.staff_id, 
@@ -28,7 +28,7 @@ SELECT category.category_id,
 FROM film INNER JOIN film_category USING(film_id) 
 INNER JOIN category USING(category_id)
 GROUP BY category.category_id, category.name
-ORDER BY category.category_id;;
+ORDER BY category.category_id;
 
 -- Question 4: Show categories with more than 50 films.
 SELECT category.category_id, 
