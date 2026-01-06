@@ -1,0 +1,221 @@
+:root {
+    font-size: 10px;
+}
+
+body {
+    background-color: #272725;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+
+/*
+---------------
+    HEADER
+---------------
+*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1.logo {
+    font-size: 3.2rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: black;
+    text-align: center;
+}
+
+
+/*
+---------------
+    NAVBAR
+---------------
+*/
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+nav li {
+    margin-right: 15px;
+}
+
+
+/*
+---------------
+   MAIN/HOME
+---------------
+*/
+section {
+    margin-top: 10rem;
+}
+
+section h3 {
+    font-size: 4.4rem;
+}
+
+p {
+    font-size: 2.4rem;
+}
+
+main .content {
+    max-width: 1400px;
+    width: 90%;
+    margin: auto;
+}
+
+.core-title {
+    font-size: 7.8rem;
+}
+
+img.capa {
+    width: 100%;
+}
+
+section.secao-impar, 
+section.secao-par {
+    display: flex;
+    gap: 90px;
+}
+
+section.secao-impar img, 
+section.secao-par img{
+    max-width: 700px;
+    width: 100%;
+}
+
+section.secao-par img {
+    order: 1;
+}
+
+
+/*
+---------------
+    FORMS
+---------------
+*/
+
+input, textarea, select {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+fieldset {
+    display: flex;
+    justify-content: flex-start;
+    border: none;
+}
+
+fieldset legend {}
+
+fieldset input {
+    width: fit-content;
+    margin-left: 2rem;
+}
+
+textarea {
+    height: 20rem;
+}
+
+main .container-form {
+    margin: auto;
+    max-width: 800px;
+}
+
+.btn-form {
+    background-color: #2075F5;
+    color: white;
+    border: none;
+}
+
+
+
+/*
+---------------
+    FOOTER
+---------------
+*/
+
+footer {
+    margin-top: 5rem;
+
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+
+.footer-brand h3 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-size: 1.4rem;
+    color: #ccc;
+
+}
+
+
+.footer-nav {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+}
+
+.footer-nav a {
+    font-size: 1.4rem;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: white;
+
+}
+
+.flex {
+    display: flex;
+}
