@@ -13,6 +13,12 @@ body {
     font-size: 1.6rem;
 }
 
+.container {
+    max-width: 1400px;
+    width: 90%;
+    margin: auto;
+}
+
 
 /*
 ---------------
@@ -83,11 +89,6 @@ p {
     font-size: 2.4rem;
 }
 
-main .content {
-    max-width: 1400px;
-    width: 90%;
-    margin: auto;
-}
 
 .core-title {
     font-size: 7.8rem;
@@ -97,19 +98,18 @@ img.capa {
     width: 100%;
 }
 
-section.secao-impar, 
-section.secao-par {
+section {
     display: flex;
     gap: 90px;
+    align-items: center;
 }
 
-section.secao-impar img, 
-section.secao-par img{
+section img {
     max-width: 700px;
     width: 100%;
 }
 
-section.secao-par img {
+section:nth-child(even) img {
     order: 1;
 }
 
@@ -254,14 +254,10 @@ footer {
 
     section {
         margin-top: 90px;
-    }
-
-    section.secao-impar, 
-    section.secao-par {
         flex-direction: column;
     }
 
-    section.secao-par img {
+    section:nth-child(even) img {
         order: 0;
     }
 
