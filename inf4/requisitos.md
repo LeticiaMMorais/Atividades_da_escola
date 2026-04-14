@@ -1,5 +1,9 @@
 # Levantamento de Requisitos
 Requisitos são as funções e as restrições necessárias, que um produto a ser desenvolvido (software) deve possuir.
+
+"O levantamento de requisitos é o processo de identificar, coletar e documentar tudo que o software precisa."
+Ele é diferente da especificação dos requisitos, que é o processo de documentar os requisitos de forma detalhada para os desenvolvedores.
+
 Para esse trabalho, primeiro deve compreender o problema e as necessidades do cliente, assim, descobre-se o que o 
 sistema deverá fazer e não fazer. O analista de sistemas deve traduzir as vontades do cliente para os desenvolvedores.
 
@@ -11,7 +15,10 @@ Os requisitos podem ser:
 
 Técnicas de levantamento de requisitos:
 - Entrevistas;
-- Observações;
+- Observações/etnografia;
 - Prototipação de telas;
 - Questionários
 - Mini palestra ou workshop.
+
+
+
